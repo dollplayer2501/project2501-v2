@@ -6,11 +6,13 @@
         "url": "https://twitter.com/dollplayer2501",
         "avator": "eD3o3g7O_400x400.webp"
     },
-    "description": "元SIer、現在、自称、電算職・IT土方の自営業者です。",
+    "description1": "Freelance programmer, in Kako District, Hyōgo, Japan.",
+    "description2": "元SIer、現在、兵庫県加古郡在住、自称、電算職・IT土方の自営業者です。",
     "more":{
         "url": "https://dollplayer2501.netlify.app",
         "name": "unlimited text works, the 4th.",
         "description": "個人的な駄文置き場、随時更新中…"
     },
-    "GoogleAnalytics4": "G-6MR1RM9MVK"
+    "github": "https://github.com/dollplayer2501/project2501-v2",
+    "googleAnalytics4": "G-6MR1RM9MVK"
 }

@@ -12,6 +12,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="/assets/styles/main.css" />
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '{{ site.googleAnalytics4 }}');
+        </script>
     </head>
 
     <body class="is-preload">
@@ -22,7 +28,8 @@
                 <p>
                     <img src="/images/{{ site.author.avator }}" style="width:48px;"><br clear="all" />
                     <span style="font-size:1.2em;font-weight:bold;">{{ site.author.name | escape }}</span><br />
-                    <span style="font-size:0.9em;">{{ site.description | escape }}</span>
+                    <span>{{ site.description1 | escape }}</span><br />
+                    <span style="font-size:0.9em;">{{ site.description2 | escape }}</span>
                 </p>
                 <h2>More information ?</h2>
                 <p>
@@ -47,11 +54,9 @@
 {%- for item in thanks %}
                     <li><a href="{{ item.url }}">{{ item.name | escape }}</a></li>
 {%- endfor %}
-{#-
                     <li>
-                        Last built on {{ buildInfo.time.formatted }} <a href="{{ site.github }}/commit/{{ buildInfo.hash }}">{{ buildInfo.hash }}</a>
+                        GitHub, <a href="{{ site.github }}/commit/{{ buildInfo.hash }}">last built on {{ buildInfo.time.formatted }} {{ buildInfo.hash }}</a>
                     </li>
-#}
                 </ul>
             </footer>
 
