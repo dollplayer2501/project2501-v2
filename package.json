@@ -1,0 +1,29 @@
+{
+  "name": "project2501-v2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "develop:clean": "rimraf ./_develop",
+    "develop:eleventy:build": "npx @11ty/eleventy",
+    "develop:eleventy:watch": "npx @11ty/eleventy --serve --port=8080",
+    "develop:build-watch": "npm-run-all --serial develop:clean develop:eleventy:watch",
+    "product:clean": "rimraf ./_production",
+    "product:eleventy:build": "cross-env NODE_ENV=production npx @11ty/eleventy",
+    "product:build": "npm-run-all --serial product:clean product:eleventy:build",
+    "product:serve": "cd ./_production && npx serve"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^1.0.1",
+    "@11ty/eleventy-plugin-directory-output": "^1.0.1",
+    "cross-env": "^7.0.3",
+    "eleventy-sass": "^1.3.1",
+    "html-minifier": "^4.0.0",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
+    "serve": "^13.0.2"
+  }
+}
