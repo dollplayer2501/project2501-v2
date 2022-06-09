@@ -1,4 +1,4 @@
-[project2501](https://incandescent-marshmallow-75dd0d.netlify.app/) is @dollplayer2501 's portal site.
+[project2501](https://project2501.netlify.app) is [@dollplayer2501](https://github.com/dollplayer2501)'s portal site.
 
 - Site template is [Eventually, HTML5 UP!](https://html5up.net/eventually).
 - Back end system is [Eleventy](https://www.11ty.dev/).
