@@ -4,9 +4,6 @@
 
 const directoryOutputPlugin = require('@11ty/eleventy-plugin-directory-output');
 
-const path = require('path');
-const eleventySass = require('eleventy-sass');
-
 const fs = require('fs');
 const htmlmin = require('html-minifier');
 
@@ -38,6 +35,10 @@ module.exports = function (eleventyConfig) {
     //
 
     // kentaroi/eleventy-sass https://github.com/kentaroi/eleventy-sass
+    // "eleventy-sass": "^1.3.1",
+    // const eleventySass = require('eleventy-sass');
+    // const path = require('path');
+
     const sass_options = {
         compileOptions: {
             permalink: function (contents, inputPath) {
@@ -55,7 +56,7 @@ module.exports = function (eleventyConfig) {
         },
         defaultEleventyEnv: isProduction ? 'production': 'development'
     };
-    eleventyConfig.addPlugin(eleventySass, sass_options);
+    // eleventyConfig.addPlugin(eleventySass, sass_options);
 
     //
     //
@@ -71,6 +72,14 @@ module.exports = function (eleventyConfig) {
         throwOnUndefined: true,
         autoescape: false,
     });
+
+    //
+    //
+    //
+
+    eleventyConfig.addWatchTarget('./source/assets/scripts/**/*');
+    eleventyConfig.addWatchTarget('./source/assets/styles/**/*');
+    eleventyConfig.setWatchThrottleWaitTime(999);
 
     //
     //

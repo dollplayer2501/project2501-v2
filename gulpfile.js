@@ -12,6 +12,10 @@ const outputPath = mode.production() ? './_production' : './_develop';
 
 //
 const rename = require('gulp-rename');
+
+//
+const sass = require('gulp-sass')(require('sass'));
+const sourcemaps = require('gulp-sourcemaps');
 //
 const uglify = require('gulp-uglify');
 //
@@ -19,12 +23,32 @@ const squoosh = require('gulp-libsquoosh');
 
 //
 const path = {
+    'scss': {
+        'source': [
+            './source/assets/styles/main.scss',
+        ],
+        'watch': './source/assets/styles/**/*.{scss,sass}',
+    },
     'javascript': [
         './source/assets/scripts/main.js',
     ],
     'image': [
         './source/images/**/*.{jpg,png,webp}'
     ],
+};
+
+//
+function scss(done) {
+    console.log('[00:00:00] Sass/SCSS');
+
+    src(path.scss.source)
+        .pipe(mode.develop(sourcemaps.init()))
+        .pipe(sass({
+            outputStyle: mode.production() ? 'compressed' : 'expanded'
+        }))
+        .pipe(mode.develop(sourcemaps.write()))
+        .pipe(dest(outputPath + '/assets/styles'));
+    done();
 };
 
 //
@@ -56,18 +80,17 @@ function images(done) {
 
 //
 function watching(done) {
+    watch(path.scss.watch, series(scss));
     watch(path.javascript, series(javascript));
     watch(path.image, series(images));
     done();
 }
 
 //
-exports.image = series(images);
+exports.css = series(scss);
 exports.js = series(javascript);
-exports.watch = series(watching);
-
+exports.image = series(images);
 //
-exports.build = series(images, javascript);
+exports.build = parallel(images, scss, javascript);
 exports.watch = series(watching);
-
 //
