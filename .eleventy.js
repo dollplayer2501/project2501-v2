@@ -77,8 +77,9 @@ module.exports = function (eleventyConfig) {
     //
     //
 
-    eleventyConfig.addWatchTarget('./source/assets/scripts/**/*');
-    eleventyConfig.addWatchTarget('./source/assets/styles/**/*');
+    eleventyConfig.addWatchTarget('./source/assets/styles/**/*.{scss,sass}');
+    eleventyConfig.addWatchTarget('./source/assets/scripts/**/*.js');
+    eleventyConfig.addWatchTarget('./source/images/**/*.{jpg,png,webp}');
     eleventyConfig.setWatchThrottleWaitTime(999);
 
     //
