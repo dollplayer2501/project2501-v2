@@ -28,5 +28,10 @@
         "name": "Steam",
         "url": "https://steamcommunity.com/id/preg_match_all/",
         "fontawesome": "fa-steam-square"
+    },
+    {
+        "name": "Amazon wish list",
+        "url": "https://www.amazon.co.jp/hz/wishlist/ls/1FBS5RH1UMGMW?ref_=wl_fv_le&viewType=grid",
+        "fontawesome": "fa-amazon"
     }
 ]

@@ -39,7 +39,7 @@
 
         @include breakpoint('<=medium') {
             br {
-                display: none;
+                display: inline;
             }
         }
 
@@ -51,7 +51,7 @@
 
         @include breakpoint('<=xsmall') {
             br {
-                display: none;
+                display: inline;
             }
         }
     }
