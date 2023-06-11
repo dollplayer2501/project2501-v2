@@ -63,6 +63,7 @@ module.exports = function (eleventyConfig) {
     //
 
     eleventyConfig.addPassthroughCopy({ './source/static/**/*': './' });
+    eleventyConfig.addPassthroughCopy({ './source/images/**/*.{jpg,jpeg,png,webp}': './images' });
 
     //
     //
