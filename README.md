@@ -24,6 +24,6 @@
     - Changing NPM pachage manager from [nvm](https://github.com/nvm-sh/nvm) to [rtx](https://github.com/jdxcode/rtx)
     - Updates to Node.js and various NPM packages, without Elenenty
     - Todo, Using [gulp-webp](https://www.npmjs.com/package/gulp-webp)  
-        In order words, regardless of the image format, the policy is to convert top `webp`.
+        In order words, regardless of the image format, the policy is to convert to `webp`.
 
 //
