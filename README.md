@@ -14,6 +14,7 @@
         - [gulp-sass](https://www.npmjs.com/package/gulp-sass), [sass](https://www.npmjs.com/package/sass), [gulp-sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps)
         - [gulp-uglify](https://www.npmjs.com/package/gulp-uglify)
         - ~~[gulp-libsquoosh](https://www.npmjs.com/package/gulp-libsquoosh)~~
+        - [gulp-webp](https://www.npmjs.com/package/gulp-webp) with [lastrun](https://gulpjs.com/docs/en/api/lastrun/)
         - [gulp-mode](https://www.npmjs.com/package/gulp-mode)
     - npm scripts
         - [cross-env](https://www.npmjs.com/package/cross-env)
@@ -23,7 +24,7 @@
 - 2023-06-11
     - Changing NPM pachage manager from [nvm](https://github.com/nvm-sh/nvm) to [rtx](https://github.com/jdxcode/rtx)
     - Updates to Node.js and various NPM packages, without Elenenty
-    - Todo, Using [gulp-webp](https://www.npmjs.com/package/gulp-webp)  
-        In order words, regardless of the image format, the policy is to convert to `webp`.
+    - ~~Todo, Using [gulp-webp](https://www.npmjs.com/package/gulp-webp)~~  
+        ~~In order words, regardless of the image format, the policy is to convert to `webp`.~~
 
 //

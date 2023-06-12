@@ -72,10 +72,10 @@
 
             // Images (in the format of 'url': 'alignment').
             images: {
-                'images/IMG_3992-L.webp': 'center',
-                'images/IMG_4185-L.webp': 'center',
-                'images/IMG_4191-L.webp': 'center',
-                'images/IMG_3531-L.webp': 'center',
+                'images/IMG_3992.webp': 'center',
+                'images/IMG_4185.webp': 'center',
+                'images/IMG_4191.webp': 'center',
+                'images/IMG_3531.webp': 'center',
             },
 
             // Delay.

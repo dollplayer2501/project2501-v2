@@ -1,7 +1,7 @@
 'use strict';
 
 
-const { src, dest, series, parallel, watch } = require('gulp');
+const { src, dest, series, parallel, watch, lastRun } = require('gulp');
 //
 var mode = require('gulp-mode')({
     modes: ['production', 'develop'],
@@ -15,6 +15,9 @@ const sass = require('gulp-sass')(require('sass'));
 const sourcemaps = require('gulp-sourcemaps');
 //
 const uglify = require('gulp-uglify');
+//
+const webp = require('gulp-webp');
+
 
 
 //
@@ -29,7 +32,7 @@ const path = {
         './source/assets/scripts/main.js',
     ],
     'image': [
-        './source/images/**/*.{jpg,png,webp}'
+        './source/images/*.{jpg,png,webp}'
     ],
 };
 
@@ -56,22 +59,37 @@ function javascript(done) {
             output:{
               comments: /^!/
             }
-          })))
+        })))
         .pipe(dest(outputPath + '/assets/scripts'));
     done();
 }
 
 //
+function image(done) {
+    console.log('[00:00:00] Image');
+
+    src(path.image, {
+        since: lastRun(image)
+    })
+        .pipe(webp())
+        .pipe(dest(outputPath + '/images'));
+    done();
+}
+
+
+//
 function watching(done) {
     watch(path.scss.watch, series(scss));
     watch(path.javascript, series(javascript));
+    watch(path.image, series(image));
     done();
 }
 
 //
 exports.css = series(scss);
 exports.js = series(javascript);
+exports.webp = series(image);
 //
-exports.build = parallel(scss, javascript);
+exports.build = parallel(image, scss, javascript);
 exports.watch = series(watching);
 //
