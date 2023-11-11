@@ -14,5 +14,3 @@ await imagemin(
         ]
     }
 );
-
-console.log('Images optimized');
