@@ -15,10 +15,11 @@
         - [@11ty/eleventy-plugin-directory-output plugin](https://www.npmjs.com/package/@11ty/eleventy-plugin-directory-output)
         - [html-minifier](https://www.npmjs.com/package/html-minifier)
     - Gulp
-        - [gulp-sass](https://www.npmjs.com/package/gulp-sass), [sass](https://www.npmjs.com/package/sass), [gulp-sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps)
-        - [gulp-uglify](https://www.npmjs.com/package/gulp-uglify)
+        - [gulp-sass](https://www.npmjs.com/package/gulp-sass) and [sass](https://www.npmjs.com/package/sass) with [gulp-sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps)
+        - [gulp-terser](https://www.npmjs.com/package/gulp-terser) with [gulp-sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps)
         - [gulp-webp](https://www.npmjs.com/package/gulp-webp) with [lastrun](https://gulpjs.com/docs/en/api/lastrun/)
         - [gulp-mode](https://www.npmjs.com/package/gulp-mode)
+        - [gulp-if](https://www.npmjs.com/package/gulp-if)
     - npm scripts
         - [cross-env](https://www.npmjs.com/package/cross-env)
         - [npm-run-all](https://www.npmjs.com/package/npm-run-all)
