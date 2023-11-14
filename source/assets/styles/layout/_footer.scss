@@ -24,11 +24,11 @@
             padding: 0;
 
             li {
-                border-left: solid 1px _palette(border2);
+                border-left: solid 1px _palette(fg);
                 display: inline-block;
                 line-height: 1em;
-                margin: 0 0 0 0.75em;
-                padding: 0 0 0 0.75em;
+                margin: 0 0 0 0.2em;
+                padding: 0 0 0 0.2em;
 
                 &:first-child {
                     border-left: 0;

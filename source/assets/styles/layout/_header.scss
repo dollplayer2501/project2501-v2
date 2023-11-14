@@ -10,7 +10,7 @@
         h1 {
             font-size: 3.0em;
             margin: 0 0 (_size(element-margin) * 0.275) 0;
-            font-weight: bold;
+            font-weight: normal;
         }
 
         p {
@@ -20,6 +20,10 @@
 
         a {
             color: inherit;
+        }
+
+        h2 {
+            font-weight: normal;
         }
 
         @include breakpoint('<=small') {
