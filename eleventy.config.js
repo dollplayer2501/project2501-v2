@@ -34,34 +34,6 @@ module.exports = function (eleventyConfig) {
     //
     //
 
-    // kentaroi/eleventy-sass https://github.com/kentaroi/eleventy-sass
-    // "eleventy-sass": "^1.3.1",
-    // const eleventySass = require('eleventy-sass');
-    // const path = require('path');
-
-    const sass_options = {
-        compileOptions: {
-            permalink: function (contents, inputPath) {
-                return path.format({
-                    dir: './assets/styles',
-                    name: path.basename(inputPath, path.extname(inputPath)),
-                    ext: '.css'
-                });
-            }
-        },
-        sass: {
-            loadPaths: ['./source/assets/styles'],
-            style: isProduction ? 'compressed': 'expanded',
-            sourceMap: isProduction ? false: true,
-        },
-        defaultEleventyEnv: isProduction ? 'production': 'development'
-    };
-    // eleventyConfig.addPlugin(eleventySass, sass_options);
-
-    //
-    //
-    //
-
     eleventyConfig.addPassthroughCopy({ './source/static/**/*': './' });
 
     //
@@ -72,15 +44,6 @@ module.exports = function (eleventyConfig) {
         throwOnUndefined: true,
         autoescape: false,
     });
-
-    //
-    //
-    //
-
-    eleventyConfig.addWatchTarget('./source/assets/styles/**/*.{scss,sass}');
-    eleventyConfig.addWatchTarget('./source/assets/scripts/**/*.js');
-    eleventyConfig.addWatchTarget('./source/images/**/*.{jpg,png,webp}');
-    eleventyConfig.setWatchThrottleWaitTime(999);
 
     //
     //
