@@ -12,12 +12,11 @@ const outputPath = mode.production() ? './_production' : './_develop';
 
 //
 const sass = require('gulp-sass')(require('sass'));
-const sourcemaps = require('gulp-sourcemaps');
-//
-const uglify = require('gulp-uglify');
-//
+const terser = require('gulp-terser');
 const webp = require('gulp-webp');
-
+//
+const gulpif = require('gulp-if');
+const sourcemaps = require('gulp-sourcemaps');
 
 
 //
@@ -32,7 +31,7 @@ const path = {
         './source/assets/scripts/main.js',
     ],
     'image': [
-        './source/images/*.{jpg,png,webp}'
+        './source/images/**/*.{jpg,jpeg,png,webp}'
     ],
 };
 
@@ -55,10 +54,12 @@ function javascript(done) {
     console.log('[00:00:00] JavaScript');
 
     src(path.javascript)
-        .pipe(mode.production(uglify({
-            output:{
-              comments: /^!/
-            }
+        .pipe(gulpif(mode.production() ? true: false,
+            terser({
+                compress: {
+                    drop_console: true
+                },
+                mangle: true
         })))
         .pipe(dest(outputPath + '/assets/scripts'));
     done();
