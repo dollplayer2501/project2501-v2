@@ -11,7 +11,7 @@ var mode = require('gulp-mode')({
 const outputPath = mode.production() ? './_production' : './_develop';
 
 //
-const sass = require('gulp-sass')(require('sass'));
+const sass = require('gulp-dart-sass');
 const terser = require('gulp-terser');
 const webp = require('gulp-webp');
 //
@@ -43,7 +43,7 @@ function scss(done) {
         .pipe(mode.develop(sourcemaps.init()))
         .pipe(sass({
             outputStyle: mode.production() ? 'compressed' : 'expanded'
-        }))
+        }).on('error', sass.logError))
         .pipe(mode.develop(sourcemaps.write()))
         .pipe(dest(outputPath + '/assets/styles'));
     done();

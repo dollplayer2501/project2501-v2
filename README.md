@@ -15,7 +15,7 @@
         - [@11ty/eleventy-plugin-directory-output plugin](https://www.npmjs.com/package/@11ty/eleventy-plugin-directory-output)
         - [html-minifier](https://www.npmjs.com/package/html-minifier)
     - Gulp
-        - [gulp-sass](https://www.npmjs.com/package/gulp-sass) and [sass](https://www.npmjs.com/package/sass) with [gulp-sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps)
+        - [gulp-dart-sass](https://www.npmjs.com/package/gulp-dart-sass) with [gulp-sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps)
         - [gulp-terser](https://www.npmjs.com/package/gulp-terser) with [gulp-sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps)
         - [gulp-webp](https://www.npmjs.com/package/gulp-webp) with [lastrun](https://gulpjs.com/docs/en/api/lastrun/)
         - [gulp-mode](https://www.npmjs.com/package/gulp-mode)
@@ -41,6 +41,9 @@
 For example in my case. (I use rtx)
 
     rtx activate fish | source
+
+Refer to [`.rtx.toml`](https://github.com/dollplayer2501/project2501-v2/blob/main/.rtx.toml) for the current version used.
+
 
 ## 3. Npm and package install
 
