@@ -1,10 +1,10 @@
+'use strict';
 //
 //
 //
 
 const directoryOutputPlugin = require('@11ty/eleventy-plugin-directory-output');
 
-const fs = require('fs');
 const htmlmin = require('html-minifier');
 
 const isProduction = process.env.NODE_ENV === 'production' ? true: false;
@@ -15,13 +15,9 @@ const isProduction = process.env.NODE_ENV === 'production' ? true: false;
 
 module.exports = function (eleventyConfig) {
 
-    console.log('--- process.env.NODE_ENV: ' + process.env.NODE_ENV + ' ---');
-
     //
+    // eleventy-plugin-directory-output
     //
-    //
-
-    eleventyConfig.setQuietMode(true);
     eleventyConfig.addPlugin(directoryOutputPlugin, {
         columns: {
             filesize: true,
@@ -31,36 +27,63 @@ module.exports = function (eleventyConfig) {
     });
 
     //
+    // 11ty Quiet Mode
     //
-    //
+    eleventyConfig.setQuietMode(true);
 
+    //
+    // 11ty Passthrough Copy
+    //
     eleventyConfig.addPassthroughCopy({ './source/static/**/*': './' });
 
     //
+    // 11ty Nunjucks Environment Options
     //
-    //
-
     eleventyConfig.setNunjucksEnvironmentOptions({
         throwOnUndefined: true,
         autoescape: false,
     });
 
     //
+    // 11ty Watch Target and tWatch Throttle Wait Time
     //
-    //
+    eleventyConfig.addWatchTarget('./source/assets/styles/');
+    eleventyConfig.addWatchTarget('./source/assets/scripts/');
+    eleventyConfig.setWatchThrottleWaitTime(1000);
 
+    //
     if (isProduction) {
-        eleventyConfig.addTransform('htmlmin', htmlminTransform);
-    } else {
-        eleventyConfig.setBrowserSyncConfig({
-            callbacks: { ready: browserSyncReady },
+        //
+        // html-minifier
+        //
+        eleventyConfig.addTransform('htmlmin', function(content) {
+            if (this.page.outputPath && this.page.outputPath.endsWith('.html')) {
+                let minified = htmlmin.minify(content, {
+                    useShortDoctype: true,
+                    removeComments: true,
+                    collapseWhitespace: true
+                });
+                return minified;
+            }
+            return content;
         });
+    } else {
+        //
+        // eleventy-dev-server, included with 11ty's installation
+        //
+        eleventyConfig.setServerOptions({
+            liveReload: true,
+            domDiff: true,
+            port: 8080,
+            watch: [],
+            showAllHosts: false,
+            https: {},
+            encoding: 'utf-8',
+            showVersion: false,
+          });
     }
 
     //
-    //
-    //
-
     return {
         markdownTemplateEngine: 'njk',
         dataTemplateEngine: 'njk',
@@ -72,36 +95,3 @@ module.exports = function (eleventyConfig) {
         }
     };
 };
-
-//
-//
-//
-
-function browserSyncReady(err, bs) {
-    bs.addMiddleware('*', (req, res) => {
-        const content_404 = fs.readFileSync('./_develop/404.html');
-        // Provides the 404 content without redirect.
-        res.write(content_404);
-        // Add 404 http status code in request header.
-        // res.writeHead(404, { 'Content-Type": "text/html' });
-        res.writeHead(404);
-        res.end();
-    });
-}
-
-function htmlminTransform(content, outputPath) {
-    if (!outputPath) {
-        return content;
-    }
-
-    if (outputPath.endsWith('.html')) {
-        let minified = htmlmin.minify(content, {
-            useShortDoctype: true,
-            removeComments: true,
-            collapseWhitespace: true,
-            minifyJS: true,
-        });
-        return minified;
-    }
-    return content;
-}
