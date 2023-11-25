@@ -12,7 +12,7 @@ export const mode = gulpMode({
 export const outputPath = mode.production() ? './_production' : './_develop';
 
 export const path = {
-    'scss': {
+    'stylesheet': {
         'source': [
             './source/assets/styles/main.scss',
         ],

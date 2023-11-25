@@ -1,6 +1,7 @@
 'use strict';
 
 import gulp from 'gulp';
+
 import sass from 'gulp-dart-sass';
 import sourcemaps from 'gulp-sourcemaps';
 
@@ -8,7 +9,7 @@ import { mode, outputPath, path } from './_config.mjs'
 
 
 export const styleSheet_task = function() {
-    return gulp.src(path.scss.source)
+    return gulp.src(path.stylesheet.source)
         .pipe(mode.develop(sourcemaps.init()))
         .pipe(sass({
             includePaths: [
