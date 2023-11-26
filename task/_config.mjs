@@ -4,12 +4,12 @@ import gulpMode from 'gulp-mode';
 
 
 export const mode = gulpMode({
-    modes: ['production', 'develop'],
+    modes: ['product', 'develop'],
     default: 'develop',
     verbose: false
 });
 
-export const outputPath = mode.production() ? './_production' : './_develop';
+export const outputPath = mode.product() ? './_product' : './_develop';
 
 export const path = {
     'stylesheet': {

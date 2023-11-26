@@ -15,7 +15,7 @@ export const styleSheet_task = function() {
             includePaths: [
                 // 'node_modules',
             ],
-            outputStyle: mode.production() ? 'compressed' : 'expanded',
+            outputStyle: mode.product() ? 'compressed' : 'expanded',
         }).on('error', sass.logError))
         .pipe(mode.develop(sourcemaps.write()))
         .pipe(gulp.dest(outputPath + '/assets/styles'));
