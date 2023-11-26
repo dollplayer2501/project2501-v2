@@ -12,7 +12,7 @@ import { mode, outputPath, path } from './_config.mjs'
 export const javaScript_task = function() {
     return gulp.src(path.javascript)
         .pipe(mode.develop(sourcemaps.init()))
-        .pipe(gulpif(mode.production() ? true: false,
+        .pipe(gulpif(mode.product() ? true: false,
             terser({
                 compress: {
                     drop_console: true,

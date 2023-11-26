@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "develop:ncu:check": "ncu",
-    "develop:ncu:update": "ncu -u",
+    "ncu:check": "ncu",
+    "ncu:update": "ncu -u",
     "develop:clean": "rimraf ./_develop",
     "develop:gulp:build:stylesheet": "cross-env NODE_ENV=develop npx gulp stylesheet",
     "develop:gulp:build:javascript": "cross-env NODE_ENV=develop npx gulp javascript",
@@ -16,11 +16,14 @@
     "develop:eleventy:watch": "cross-env NODE_ENV=develop npx @11ty/eleventy --serve --watch --port=8080",
     "develop:build": "npm-run-all --sequential develop:clean --parallel develop:gulp:build develop:eleventy:build",
     "develop:watch": "npm-run-all --sequential develop:clean develop:gulp:build --parallel develop:gulp:watch develop:eleventy:watch",
-    "product:clean": "rimraf ./_production",
-    "product:gulp:build": "cross-env NODE_ENV=production npx gulp build",
-    "product:eleventy:build": "cross-env NODE_ENV=production npx @11ty/eleventy",
+    "product:clean": "rimraf ./_product",
+    "product:gulp:build:stylesheet": "cross-env NODE_ENV=product npx gulp stylesheet",
+    "product:gulp:build:javascript": "cross-env NODE_ENV=product npx gulp javascript",
+    "product:gulp:build:imageWebp": "cross-env NODE_ENV=product npx gulp imageWebp",
+    "product:gulp:build": "cross-env NODE_ENV=product npx gulp build",
+    "product:eleventy:build": "cross-env NODE_ENV=product npx @11ty/eleventy",
     "product:build": "npm-run-all --sequential product:clean --parallel product:gulp:build product:eleventy:build",
-    "product:serve": "npx serve ./_production -p 3000"
+    "product:serve": "npx serve ./_product -p 3000"
   },
   "keywords": [],
   "author": "",
@@ -37,7 +40,7 @@
     "gulp-terser": "^2.1.0",
     "gulp-webp": "^5.0.0",
     "html-minifier": "^4.0.0",
-    "npm-check-updates": "^16.14.6",
+    "npm-check-updates": "^16.14.11",
     "npm-run-all": "^4.1.5",
     "rimraf": "^5.0.5",
     "serve": "^14.2.1"

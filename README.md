@@ -67,7 +67,7 @@ If you only need to build, use the following.
 
 ### 4.2. Build a product version and visual confirmation
 
-Output is stored in `./any-path-name/_production`.  
+Output is stored in `./any-path-name/_product`.  
 HTML, JavaScript and CSS are compressed.
 
     npm run product:build

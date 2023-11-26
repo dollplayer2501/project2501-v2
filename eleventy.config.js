@@ -7,7 +7,7 @@ const directoryOutputPlugin = require('@11ty/eleventy-plugin-directory-output');
 
 const htmlmin = require('html-minifier');
 
-const isProduction = process.env.NODE_ENV === 'production' ? true: false;
+const isProduction = process.env.NODE_ENV === 'product' ? true: false;
 
 //
 //
@@ -61,7 +61,9 @@ module.exports = function (eleventyConfig) {
                 let minified = htmlmin.minify(content, {
                     useShortDoctype: true,
                     removeComments: true,
-                    collapseWhitespace: true
+                    collapseWhitespace: true,
+                    minifyCSS: true,
+                    minifyJS: true,
                 });
                 return minified;
             }
@@ -91,7 +93,7 @@ module.exports = function (eleventyConfig) {
         dir: {
             input: './source',
             layouts: './_includes',
-            output: isProduction ? './_production' : './_develop'
+            output: isProduction ? './_product' : './_develop'
         }
     };
 };

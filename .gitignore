@@ -6,7 +6,7 @@ node_modules
 package-lock.json
 
 _develop
-_production
+_product
 
 # This directory is my image works
 source/images/work
